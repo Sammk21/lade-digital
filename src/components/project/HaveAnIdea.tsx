@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 
 // Full-bleed dark CTA with a looping background reel. Drop your video at
 // /public/assets/footer/ropes.mp4; until then the animated gradient stands in.

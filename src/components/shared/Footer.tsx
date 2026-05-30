@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 import PillButton from "./PillButton";
 
 const FOOTER_LINKS = [

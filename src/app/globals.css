@@ -2,14 +2,14 @@
 
 /*
   Design tokens for the Cuberto-style editorial agency layout.
-  One neo-grotesque family at multiple weights, black/white palette,
+  One typeface (Author, variable) at all weights, black/white palette,
   tight negative letter-spacing on large display type.
 */
 @theme {
   --color-ink: #000000;
   --color-paper: #ffffff;
 
-  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-author), ui-sans-serif, system-ui, sans-serif;
 
   /* Cuberto's two signature easing curves */
   --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
@@ -60,6 +60,7 @@ body {
 .pill:hover {
   transform: translateY(-2px);
 }
+
 .pill__ring {
   position: absolute;
   inset: 0;
@@ -108,6 +109,7 @@ body {
   color: var(--color-ink);
 }
 
+
 /* ---- Staggered word reveal used on the hero / section headings ---- */
 @keyframes word-rise {
   from {
@@ -128,6 +130,69 @@ body {
   padding: 0.18em;
   transform: translateY(110%);
   animation: word-rise 1s var(--ease-expo) forwards;
+}
+/* While a page transition is masking the screen, hold the incoming page's
+   word-reveals closed so they don't play behind the rising sheet. The
+   TransitionProvider releases them via <html data-reveal="go"> once the
+   transition has settled. (Unset / first load / no-JS → runs normally.) */
+html[data-reveal="wait"] .reveal-word > span {
+  animation-play-state: paused;
+}
+
+/* ---- Scroll reveal: a block rises + fades as it enters the viewport ----
+   Driven by <Reveal> (components/shared/Reveal.tsx), which toggles data-shown. */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 28px));
+  transition: opacity 0.85s var(--ease-reveal) var(--reveal-delay, 0ms),
+    transform 0.85s var(--ease-reveal) var(--reveal-delay, 0ms);
+}
+.reveal-up[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+/* No-JS: never leave content stuck hidden. */
+@media (scripting: none) {
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Navbar entrance: items fade + drop in on load, held during a page
+   transition (gated by the same data-reveal flag as the hero reveals). ---- */
+@keyframes nav-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav-reveal {
+  animation: nav-enter 0.7s var(--ease-reveal) both;
+  animation-delay: var(--nav-delay, 0s);
+}
+html[data-reveal="wait"] .nav-reveal {
+  animation-play-state: paused;
+}
+@media (scripting: none) {
+  .nav-reveal {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Reduced motion: skip the reveal entirely — content is simply present. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .nav-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 /* ---- Slow background pan for the "Have an idea?" CTA placeholder ---- */
@@ -161,6 +226,11 @@ body {
   animation-delay: 0.1s;
   animation-direction: reverse;
 }
+
+/* The page-transition look (`::view-transition-*`) is injected as a raw <style>
+   tag from components/transition/TransitionProvider.tsx — Turbopack's dev CSS
+   pipeline strips `::view-transition` rules from processed stylesheets, so they
+   can't live here. */
 
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {

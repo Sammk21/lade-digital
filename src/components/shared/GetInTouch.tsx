@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 
 // Floating circular CTA, fixed to the bottom-right. The label rotates around
 // the ring (via SVG textPath); the centre holds an arrow that nudges on hover.

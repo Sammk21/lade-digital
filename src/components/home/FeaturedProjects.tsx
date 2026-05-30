@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 import RevealText from "../shared/RevealText";
 import PillButton from "../shared/PillButton";
 import { FEATURED_LEFT, FEATURED_RIGHT, type FeaturedProject } from "@/lib/projects";

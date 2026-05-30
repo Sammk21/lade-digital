@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState, type CSSProperties } from "react";
+import Link from "@/components/transition/TransitionLink";
 import Logo from "./Logo";
 
 const NAV_LINKS = [
@@ -40,23 +40,31 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-12 lg:px-[7.5rem]">
-          <Link href="/" aria-label="Home" className="relative z-50 text-ink">
+
+
+        <div className="mx-auto flex h-20 max-w-400 items-center justify-between px-6 md:px-12 lg:px-30">
+          <Link
+            href="/"
+            aria-label="Home"
+            className="nav-reveal relative z-50 text-ink"
+            style={{ "--nav-delay": "0.05s" } as CSSProperties}
+          >
             <Logo className="h-5 w-auto" />
           </Link>
 
           {/* Desktop navigation */}
           <nav className="hidden items-center md:flex md:-mr-5">
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative block overflow-hidden px-5 py-1.5 text-xl text-ink"
+                style={{ "--nav-delay": `${0.12 + i * 0.05}s` } as CSSProperties}
+                className="nav-reveal group relative block overflow-hidden px-5 py-1.5 text-xl text-ink transition-transform duration-300 ease-reveal "
               >
-                <span className="block transition-transform duration-700 ease-[var(--ease-reveal)] group-hover:-translate-y-full">
+                <span className="block transition-transform duration-700 ease-reveal group-hover:translate-y-[-120%]">
                   {link.label}
                 </span>
-                <span className="absolute left-5 top-1.5 block translate-y-full transition-transform duration-700 ease-[var(--ease-reveal)] group-hover:translate-y-0">
+                <span className="absolute left-5 top-1.5 block  translate-y-full transition-transform duration-700 ease-reveal group-hover:scale-100 scale-88 group-hover:translate-y-0">
                   {link.label}
                 </span>
               </Link>
@@ -69,7 +77,8 @@ export default function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="relative z-50 flex h-6 w-9 flex-col items-center justify-center md:hidden"
+            style={{ "--nav-delay": "0.12s" } as CSSProperties}
+            className="nav-reveal relative z-50 flex h-6 w-9 flex-col items-center justify-center md:hidden"
           >
             <span
               className={`absolute h-0.5 w-7 bg-ink transition-all duration-300 ${

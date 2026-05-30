@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 import type { Project } from "@/lib/projects";
 import { gradientFor } from "@/lib/gradient";
 

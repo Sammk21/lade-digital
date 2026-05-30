@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 import RevealText from "../shared/RevealText";
 import PillButton from "../shared/PillButton";
 import { BLOG_POSTS } from "@/lib/blog";

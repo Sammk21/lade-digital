@@ -1,5 +1,6 @@
 import RevealText from "../shared/RevealText";
 import PillButton from "../shared/PillButton";
+import Line from "../shared/Line";
 
 const SOLUTIONS = [
   {
@@ -53,7 +54,7 @@ export default function Solutions() {
           {SOLUTIONS.map((item) => (
             <div key={item.label}>
               <div className="mb-12 mt-24 first:mt-0">
-                <Hairline />
+                <Line />
               </div>
               <div className="flex flex-col gap-8 md:flex-row md:gap-12">
                 <div className="flex-1">

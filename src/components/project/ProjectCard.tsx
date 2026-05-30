@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/transition/TransitionLink";
 import type { Project } from "@/lib/projects";
 
 // Deterministic gradient per slug so each placeholder cover looks distinct

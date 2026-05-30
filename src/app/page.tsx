@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
 import GetInTouch from "@/components/shared/GetInTouch";
+import Reveal from "@/components/shared/Reveal";
 import HomeHero from "@/components/home/HomeHero";
 import Showreel from "@/components/home/Showreel";
 import AboutSummary from "@/components/home/AboutSummary";
@@ -29,22 +30,31 @@ export default function HomePage() {
       <GetInTouch />
       <main>
         <HomeHero />
-        <Showreel />
-        <AboutSummary />
+        {/* Everything below the hero rises + fades in as it scrolls into view. */}
+        <Reveal delay={1000}>
+          <Showreel />
+        </Reveal>
+        <Reveal>
+          <AboutSummary />
+        </Reveal>
         {/* Each section below uses a rounded-top panel that overlaps the
             previous one by 80px, recreating the source's stacked reveal. */}
-        <div className="-mt-20">
+        <Reveal className="-mt-20">
           <FeaturedProjects />
-        </div>
-        <div className="-mt-20">
+        </Reveal>
+        <Reveal className="-mt-20">
           <ServicesPreview />
-        </div>
-        <div className="-mt-20">
+        </Reveal>
+        <Reveal className="-mt-20">
           <BlogPreview />
-        </div>
-        <HaveAnIdea />
+        </Reveal>
+        <Reveal>
+          <HaveAnIdea />
+        </Reveal>
       </main>
-      <Footer />
+      <Reveal>
+        <Footer />
+      </Reveal>
     </>
   );
 }

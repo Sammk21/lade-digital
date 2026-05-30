@@ -1,14 +1,28 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
+import { TransitionProvider } from "@/components/transition/TransitionProvider";
 import "./globals.css";
 
-// One cohesive neo-grotesque (a free stand-in for Suisse Intl) used at
-// multiple weights, mirroring the single-family editorial look of the source.
-const grotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-grotesk",
+// Author (variable) — the studio's primary typeface, self-hosted and optimized
+// through next/font. A single variable file per style spans the full weight
+// axis (Extralight 200 → Bold 700) for both upright and italic, exposed as the
+// --font-author CSS variable consumed by --font-sans in globals.css.
+const author = localFont({
+  src: [
+    {
+      path: "../font/Author_Complete/Fonts/WEB/fonts/Author-Variable.woff2",
+      weight: "200 700",
+      style: "normal",
+    },
+    {
+      path: "../font/Author_Complete/Fonts/WEB/fonts/Author-VariableItalic.woff2",
+      weight: "200 700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-author",
   display: "swap",
+  fallback: ["system-ui", "arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -29,8 +43,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={grotesk.variable}>
-      <body>{children}</body>
+    <html lang="en" className={author.variable}>
+      <body>
+        <TransitionProvider>{children}</TransitionProvider>
+      </body>
     </html>
   );
 }
