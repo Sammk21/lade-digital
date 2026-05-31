@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { TransitionProvider } from "@/components/transition/TransitionProvider";
 import { CursorProvider } from "@/components/cursor/CursorProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -52,7 +53,9 @@ export default function RootLayout({
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body>
         <TransitionProvider>
-          <CursorProvider>{children}</CursorProvider>
+          <CursorProvider>
+            <SmoothScroll>{children}</SmoothScroll>
+          </CursorProvider>
         </TransitionProvider>
       </body>
     </html>
