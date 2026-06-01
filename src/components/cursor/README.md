@@ -1,6 +1,6 @@
 # Cursor follower (`cb-cursor`)
 
-A global, Cuberto-style cursor accent. The **native system cursor stays visible** —
+A global, Lade-style cursor accent. The **native system cursor stays visible** —
 this is an extra dot that trails it and morphs into whatever element you set while
 hovering a target. It supports a directional skew on movement and is fully
 on-demand (no idle CPU cost).

@@ -8,7 +8,7 @@ const OFFICES = [
   {
     label: "Main office",
     address: "901 N Pitt Street, Alexandria VA, 22314",
-    contact: { label: "info@cuberto.com", href: "mailto:info@cuberto.com" },
+    contact: { label: "info@lade.digital", href: "mailto:info@lade.digital" },
   },
   {
     label: "Second office",
@@ -18,11 +18,11 @@ const OFFICES = [
 ];
 
 const SOCIALS = [
-  { name: "Instagram", href: "https://www.instagram.com/cubertodesign/" },
+  { name: "Instagram", href: "https://www.instagram.com/ladedesign/" },
   { name: "YouTube", href: "https://www.youtube.com/channel/UCzestFrXpwSGCfcbO2pObwQ" },
-  { name: "Dribbble", href: "https://dribbble.com/cuberto" },
-  { name: "Behance", href: "https://www.behance.net/cuberto" },
-  { name: "GitHub", href: "https://github.com/Cuberto" },
+  { name: "Dribbble", href: "https://dribbble.com/lade" },
+  { name: "Behance", href: "https://www.behance.net/lade" },
+  { name: "GitHub", href: "https://github.com/Lade" },
 ];
 
 export default function ContactDetails() {

@@ -160,8 +160,8 @@ export default function Navbar({ duration, ease }: NavbarProps = {}) {
 
         <p className="eyebrow mb-3 mt-12 opacity-40">Get in touch</p>
         <div className="flex flex-col gap-1 text-xl">
-          <a href="mailto:info@cuberto.com">info@cuberto.com</a>
-          <a href="https://hello.cuberto.com/">Our workflow</a>
+          <a href="mailto:info@lade.digital">info@lade.digital</a>
+          <a href="https://hello.lade.digital/">Our workflow</a>
         </div>
       </div>
     </header>

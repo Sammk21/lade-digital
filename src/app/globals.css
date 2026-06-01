@@ -8,7 +8,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  Design tokens for the Cuberto-style editorial agency layout.
+  Design tokens for the Lade-style editorial agency layout.
   One typeface (Author, variable) at all weights, black/white palette,
   tight negative letter-spacing on large display type.
 */
@@ -18,7 +18,7 @@
 
   --font-sans: var(--font-author), ui-sans-serif, system-ui, sans-serif;
 
-  /* Cuberto's two signature easing curves */
+  /* Lade's two signature easing curves */
   --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
@@ -461,7 +461,7 @@ html[data-reveal="wait"] .nav-reveal {
 }
 
 /* -scale: grow the plain dot a little (width/height/margin — GSAP owns the
-   transform). Pairs with -blend for a Cuberto-style hover accent. */
+   transform). Pairs with -blend for a Lade-style hover accent. */
 .cb-cursor.-scale .cb-cursor-inner {
   width: 36px;
   height: 36px;

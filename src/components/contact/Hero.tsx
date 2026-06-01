@@ -20,7 +20,7 @@ export default function Hero() {
         />
         <div className="mt-12 flex justify-center">
           <PillButton
-            href="mailto:info@cuberto.com"
+            href="mailto:info@lade.digital"
             label="Tell us about your project"
             variant="ink"
             size="lg"

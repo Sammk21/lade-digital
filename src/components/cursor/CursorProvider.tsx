@@ -14,7 +14,7 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
 /* --------------------------------------------------------------------------
-   Global cursor follower — a Cuberto-style "cb-cursor".
+   Global cursor follower — a Lade-style "cb-cursor".
 
    The native system cursor stays visible; this follower trails it as an extra
    accent that morphs based on what you hover. It can become ANY element: the

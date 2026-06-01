@@ -1,6 +1,6 @@
-# Cuberto-style Services Landing Page
+# Lade-style Services Landing Page
 
-A faithful Next.js 16 (App Router) + Tailwind CSS v4 rebuild of the Cuberto
+A faithful Next.js 16 (App Router) + Tailwind CSS v4 rebuild of the Lade
 "Our services" page, broken into a clean, modular component per section.
 
 ## Getting started
