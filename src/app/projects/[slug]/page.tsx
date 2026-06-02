@@ -79,7 +79,7 @@ function InfoRow({ label, body }: { label: string; body: string }) {
           <h3 className="eyebrow opacity-50">{label}</h3>
         </div>
         <div className="flex-1">
-          <p className="max-w-[560px] text-[1.625rem] leading-tight tracking-[0.01em]">
+          <p className="max-w-[560px] text-xl leading-tight tracking-[0.01em] md:text-[1.625rem]">
             {body}
           </p>
         </div>
@@ -123,7 +123,7 @@ export default async function ProjectPage({
       <Navbar />
       <GetInTouch />
       <main>
-        <article className="overflow-hidden pb-28 pt-44 md:pt-52">
+        <article className="overflow-hidden pb-28 pt-36 md:pt-52">
           {/* Hero */}
           <header className={WRAP}>
             <Link
@@ -150,7 +150,7 @@ export default async function ProjectPage({
               stagger={0.06}
             />
 
-            <p className="mt-8 max-w-[760px] text-2xl leading-tight tracking-[0.02em] text-ink/70">
+            <p className="mt-8 max-w-[760px] text-xl leading-tight tracking-apple-body text-ink/70 md:text-2xl">
               {detail.tagline}
             </p>
           </header>
@@ -188,7 +188,7 @@ export default async function ProjectPage({
               </div>
               <div className="md:col-span-8">
                 <RevealUp>
-                  <p className="text-[1.75rem] leading-[1.15] tracking-[0.01em] md:text-[2rem]">
+                  <p className="text-2xl leading-[1.15] tracking-[0.01em] md:text-[1.75rem] lg:text-[2rem]">
                     {detail.overview}
                   </p>
                 </RevealUp>
@@ -290,7 +290,7 @@ export default async function ProjectPage({
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {detail.palette.map((c) => (
                   <RevealUp key={c.hex}>
-                    <div className="overflow-hidden rounded-[20px] border border-ink/10">
+                    <div className="overflow-hidden rounded-media border border-ink/10">
                       <div
                         className="aspect-[4/3]"
                         style={{ background: c.hex }}
@@ -318,7 +318,7 @@ export default async function ProjectPage({
               data-cursor-text="Explore"
               className="group block"
             >
-              <div className="relative aspect-[16/8] overflow-hidden rounded-[20px] md:aspect-[16/6]">
+              <div className="relative aspect-[16/8] overflow-hidden rounded-media md:aspect-[16/6]">
                 <div
                   className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-reveal)] group-hover:scale-105"
                   style={{ background: gradientFor(next.slug) }}

@@ -1,6 +1,6 @@
-import RevealText from "../shared/RevealText";
 import RevealUp from "../shared/RevealUp";
 import Section from "../shared/Section";
+import SectionHeading from "../shared/SectionHeading";
 
 // --- Animated benefit icons (recreated from the source SVGs) -------------
 
@@ -117,12 +117,13 @@ const BENEFITS = [
 // <Section variant="overlap"> wrapper on the services page — this is content.
 export default function Benefits() {
   return (
-    <Section variant="overlap" bg="var(--color-ink)" className="text-paper">
-      <RevealText
-        as="h2"
-        text="Benefits of working with us"
-        className="display-xl mb-28 block"
-      />
+    <Section
+      variant="overlap"
+      bg="var(--color-ink)"
+      className="text-paper"
+      labelledBy="benefits-heading"
+    >
+      <SectionHeading id="benefits-heading" text="Benefits of working with us" />
 
       <div>
         {BENEFITS.map((item, i) => (
@@ -136,7 +137,7 @@ export default function Benefits() {
               <div className="flex-1">{item.icon}</div>
               <div className="flex-1">
                 <h3 className="eyebrow mb-4">{item.label}</h3>
-                <p className="max-w-[500px] text-[1.625rem] leading-tight tracking-[0.02em]">
+                <p className="max-w-[500px] text-xl leading-tight tracking-apple-body md:text-[1.625rem]">
                   {item.body}
                 </p>
               </div>

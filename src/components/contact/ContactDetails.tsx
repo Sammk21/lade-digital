@@ -1,4 +1,5 @@
 import PillButton from "@/components/shared/PillButton";
+import Container from "@/components/shared/Container";
 
 // Contact body, styled for the light page (ink on paper) — a counterpart to the
 // dark contact block in CtaFooter. Two office addresses with tappable
@@ -20,15 +21,14 @@ const OFFICES = [
 const SOCIALS = [
   { name: "Instagram", href: "https://www.instagram.com/ladedesign/" },
   { name: "YouTube", href: "https://www.youtube.com/channel/UCzestFrXpwSGCfcbO2pObwQ" },
-  { name: "Dribbble", href: "https://dribbble.com/lade" },
-  { name: "Behance", href: "https://www.behance.net/lade" },
   { name: "GitHub", href: "https://github.com/Lade" },
+  { name: "Facebook", href: "https://www.facebook.com/Lade.design/" },
 ];
 
 export default function ContactDetails() {
   return (
-    <section className="px-6 pb-28 md:px-12 lg:px-30">
-      <div className="mx-auto w-full max-w-[1600px]">
+    <section className="pb-28">
+      <Container width="wide">
         <div className="grid gap-16 border-t border-ink/10 pt-16 lg:grid-cols-2">
           {/* Offices */}
           <div className="flex flex-col gap-12 sm:flex-row sm:gap-24">
@@ -73,7 +73,7 @@ export default function ContactDetails() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

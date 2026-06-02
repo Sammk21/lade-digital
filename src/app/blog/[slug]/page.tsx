@@ -115,7 +115,7 @@ export default async function BlogPostPage({
       <Navbar />
       <GetInTouch />
       <main>
-        <article className="px-6 pb-28 pt-48 md:px-12 md:pt-52 lg:px-60">
+        <article className="px-6 pb-28 pt-36 md:px-12 md:pt-52 lg:px-60">
           <div className="mx-auto w-full max-w-4xl">
             <Link
               href="/blog"
@@ -138,7 +138,7 @@ export default async function BlogPostPage({
 
             <Reveal className="mt-12 block">
               <div
-                className="aspect-video w-full overflow-hidden rounded-[20px]"
+                className="aspect-video w-full overflow-hidden rounded-media"
                 style={{ background: gradientFor(post.slug) }}
               />
             </Reveal>

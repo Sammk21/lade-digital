@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
 import GetInTouch from "@/components/shared/GetInTouch";
-import Hero from "@/components/contact/Hero";
+import PageHero from "@/components/shared/PageHero";
+import PillButton from "@/components/shared/PillButton";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactDetails from "@/components/contact/ContactDetails";
 import Reveal from "@/components/shared/Reveal";
@@ -26,7 +27,18 @@ export default function ContactsPage() {
       <Navbar />
       <GetInTouch />
       <main>
-        <Hero />
+        <PageHero
+          eyebrow="Get in touch"
+          title="Let’s build something beyond what’s possible"
+        >
+          <PillButton
+            href="mailto:info@lade.digital"
+            label="Tell us about your project"
+            variant="ink"
+            size="lg"
+            external
+          />
+        </PageHero>
         <Reveal>
           <ContactForm />
         </Reveal>

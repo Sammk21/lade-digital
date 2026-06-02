@@ -1,69 +1,44 @@
-import Link from "@/components/transition/TransitionLink";
-import RevealText from "../shared/RevealText";
 import RevealUp from "../shared/RevealUp";
-import PillButton from "../shared/PillButton";
-import { FEATURED_LEFT, FEATURED_RIGHT, type FeaturedProject } from "@/lib/projects";
-import { gradientFor } from "@/lib/gradient";
-
-function FeaturedCard({ project }: { project: FeaturedProject }) {
-  return (
-    <Link
-      href={`/projects/${project.slug}`}
-      aria-label={project.name}
-      data-cursor="-explore"
-      data-cursor-text="Explore"
-      className="group block text-paper"
-    >
-      <div
-        className={`relative overflow-hidden rounded-[20px] ${
-          project.tall ? "aspect-[500/675]" : "aspect-square"
-        }`}
-      >
-        <div
-          className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-reveal)] group-hover:scale-105"
-          style={{ background: gradientFor(project.slug) }}
-        />
-      </div>
-      <p className="mt-8 max-w-[75%] text-xl leading-tight">
-        <b className="font-semibold">{project.name}</b>{" "}
-        <span className="text-paper/70">– {project.description}</span>
-      </p>
-    </Link>
-  );
-}
+import ProjectCard from "../shared/ProjectCard";
+import SectionHeading from "../shared/SectionHeading";
+import SectionCta from "../shared/SectionCta";
+import { FEATURED_LEFT, FEATURED_RIGHT } from "@/lib/projects";
 
 // Panel chrome (rounded-top, dark bg, container, padding) lives in the
 // <Section variant="overlap"> wrapper on the home page — this renders content.
 export default function FeaturedProjects() {
   return (
-    <>
-      <RevealText
-        as="h2"
-        text="Featured projects"
-        className="display-xl mb-28 block"
-      />
+    <div className="pb-10">
+      <SectionHeading id="featured-heading" text="Featured projects" />
 
-      {/* Offset two columns: right column starts lower */}
-      <div className="grid gap-x-24 md:grid-cols-2">
-        <div className="grid gap-24">
+      {/* 1. Changed to grid-cols-2 universally so it stays side-by-side on mobile.
+        2. Added smaller mobile gaps (gap-x-4) to prevent squishing.
+      */}
+      <div className="grid grid-cols-2 gap-x-4 md:gap-x-12 lg:gap-x-24 ">
+        
+        {/* Left Column */}
+        <div className="grid gap-8 md:gap-16 lg:gap-24">
           {FEATURED_LEFT.map((p, i) => (
             <RevealUp key={p.slug} delay={i * 100}>
-              <FeaturedCard project={p} />
+              {/* layout="grid" is the default now, so we don't need to pass it */}
+              <ProjectCard project={p} theme="paper" tall={p.tall} />
             </RevealUp>
           ))}
         </div>
-        <div className="mt-24 grid gap-24 md:mt-[331px]">
+        
+        {/* Right Column (Offset) */}
+        {/* Adjusted the mobile top-margin (mt-16) so the offset looks proportional on smaller screens */}
+        <div className="mt-16 grid gap-8 md:mt-[331px] md:gap-16 lg:gap-24">
           {FEATURED_RIGHT.map((p, i) => (
             <RevealUp key={p.slug} delay={i * 100}>
-              <FeaturedCard project={p} />
+              <ProjectCard project={p} theme="paper" tall={p.tall} />
             </RevealUp>
           ))}
         </div>
+        
       </div>
 
-      <div className="my-32 text-center">
-        <PillButton href="/projects" label="View all projects" variant="paper" />
-      </div>
-    </>
+      <SectionCta href="/projects" label="View all projects" variant="paper" />
+    </div>
   );
 }

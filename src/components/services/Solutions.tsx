@@ -1,8 +1,8 @@
-import RevealText from "../shared/RevealText";
 import RevealUp from "../shared/RevealUp";
 import PillButton from "../shared/PillButton";
 import Line from "../shared/Line";
 import Section from "../shared/Section";
+import SectionHeading from "../shared/SectionHeading";
 
 const SOLUTIONS = [
   {
@@ -44,12 +44,12 @@ function Hairline({ color = "var(--color-ink)" }: { color?: string }) {
 
 export default function Solutions() {
   return (
-    <Section variant="normal" className="overflow-hidden pt-36 pb-0">
-      <RevealText
-        as="h2"
-        text="Our solutions"
-        className="display-xl mb-28 block"
-      />
+    <Section
+      variant="normal"
+      className="overflow-hidden pb-0 pt-20 md:pt-28 lg:pt-36"
+      labelledBy="solutions-heading"
+    >
+      <SectionHeading id="solutions-heading" text="Our solutions" />
 
       <div>
         {SOLUTIONS.map((item, i) => (
@@ -62,7 +62,7 @@ export default function Solutions() {
                 <h3 className="eyebrow">{item.label}</h3>
               </div>
               <div className="flex-1">
-                <p className="max-w-[500px] text-[1.625rem] leading-tight tracking-[0.02em]">
+                <p className="max-w-[500px] text-xl leading-tight tracking-apple-body md:text-[1.625rem]">
                   {item.body}
                 </p>
                 <div className="mt-10">
