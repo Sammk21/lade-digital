@@ -1,4 +1,5 @@
 import RevealScale from "../shared/RevealScale";
+import Container from "../shared/Container";
 
 // Full-width rounded media block. Drop your looping reel at
 // /public/assets/services/main.mp4 and it will play automatically; until then
@@ -6,8 +7,8 @@ import RevealScale from "../shared/RevealScale";
 export default function VideoShowcase() {
   return (
     <section className="relative z-10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-12 lg:px-[7.5rem]">
-        <RevealScale className="relative aspect-[1360/725] block overflow-hidden rounded-[20px]">
+      <Container width="wide">
+        <RevealScale className="relative aspect-[1360/725] block overflow-hidden rounded-media">
           {/* Placeholder backdrop (visible until a real video is supplied) */}
           <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-neutral-900 to-black" />
           <div
@@ -30,7 +31,7 @@ export default function VideoShowcase() {
             <source src="/assets/services/main.mp4" type="video/mp4" />
           </video>
         </RevealScale>
-      </div>
+      </Container>
     </section>
   );
 }

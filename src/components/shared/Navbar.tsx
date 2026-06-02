@@ -4,6 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { usePathname } from "next/navigation";
 import Link from "@/components/transition/TransitionLink";
 import Logo from "./Logo";
+import Container from "./Container";
 import { HoverText, hoverTargetClass } from "./HoverButton";
 
 const NAV_LINKS = [
@@ -85,7 +86,7 @@ export default function Navbar({ duration, ease }: NavbarProps = {}) {
       >
 
 
-        <div className="mx-auto flex h-20 max-w-400 items-center justify-between px-6 md:px-12 lg:px-30">
+        <Container width="wide" className="flex h-20 items-center justify-between">
           <Link
             href="/"
             aria-label="Home"
@@ -132,7 +133,7 @@ export default function Navbar({ duration, ease }: NavbarProps = {}) {
               }`}
             />
           </button>
-        </div>
+        </Container>
       </div>
 
       {/* Mobile full-screen menu */}

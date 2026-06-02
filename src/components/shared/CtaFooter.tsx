@@ -2,6 +2,7 @@
 
 import Link from "@/components/transition/TransitionLink";
 import PillButton from "./PillButton";
+import Container from "./Container";
 import PlasmaWave from "@/components/PlasmaWave";
 
 const FOOTER_LINKS = [
@@ -64,7 +65,7 @@ export default function CtaFooter() {
       </section>
 
       {/* Footer */}
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 pb-28 md:px-12 lg:px-[7.5rem]">
+      <Container width="wide" className="relative z-10 pb-28">
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Contact blocks */}
           <div className="flex flex-col gap-12 sm:flex-row sm:gap-24">
@@ -81,7 +82,7 @@ export default function CtaFooter() {
                 Office
               </span>
               <span className="text-lg font-medium leading-relaxed">
-               Sector 2, Kopar Khairane, Navi Mumbai
+                Kopar Khairane, Navi Mumbai
               </span>
             </address>
           </div>
@@ -139,7 +140,7 @@ export default function CtaFooter() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

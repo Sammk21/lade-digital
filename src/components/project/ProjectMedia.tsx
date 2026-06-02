@@ -1,14 +1,7 @@
 import Image from "next/image";
 import { gradientFor } from "@/lib/gradient";
 import type { MediaAspect } from "@/lib/projects";
-
-const ASPECT: Record<MediaAspect, string> = {
-  ultrawide: "aspect-[16/7]",
-  wide: "aspect-video",
-  square: "aspect-square",
-  portrait: "aspect-[4/5]",
-  tall: "aspect-[3/4]",
-};
+import MediaFrame from "@/components/shared/MediaFrame";
 
 type ProjectMediaProps = {
   /** Seed for the deterministic placeholder gradient (keep unique per frame). */
@@ -39,9 +32,7 @@ export default function ProjectMedia({
   sizes = "(min-width: 768px) 50vw, 100vw",
 }: ProjectMediaProps) {
   return (
-    <div
-      className={`group relative overflow-hidden rounded-[20px] bg-ink/5 ${ASPECT[aspect]} ${className}`}
-    >
+    <MediaFrame aspect={aspect} className={`group bg-ink/5 ${className}`}>
       {src ? (
         <Image
           src={src}
@@ -72,6 +63,6 @@ export default function ProjectMedia({
           ) : null}
         </>
       )}
-    </div>
+    </MediaFrame>
   );
 }

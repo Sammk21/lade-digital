@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Container from "@/components/shared/Container";
 
 // Contact form for the light page (ink on paper). Submits to a Formspree
 // endpoint (NEXT_PUBLIC_FORMSPREE_ENDPOINT) via fetch, so there's no backend
@@ -65,8 +66,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <section className="px-6 pb-28 md:px-12 lg:px-30">
-        <div className="mx-auto w-full max-w-[1600px]">
+      <section className="pb-28">
+        <Container width="wide">
           <div className="border-t border-ink/10 pt-16">
             <p className="display-xl max-w-3xl">Thanks — we’ll be in touch shortly.</p>
             <button
@@ -77,14 +78,14 @@ export default function ContactForm() {
               Send another message
             </button>
           </div>
-        </div>
+        </Container>
       </section>
     );
   }
 
   return (
-    <section className="px-6 pb-28 md:px-12 lg:px-30">
-      <div className="mx-auto w-full max-w-[1600px]">
+    <section className="pb-28">
+      <Container width="wide">
         <div className="grid gap-16 border-t border-ink/10 pt-16 lg:grid-cols-[0.6fr_1fr]">
           <div>
             <span className="eyebrow block opacity-50">Start a conversation</span>
@@ -136,7 +137,7 @@ export default function ContactForm() {
             </button>
           </form>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

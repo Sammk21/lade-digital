@@ -1,19 +1,21 @@
 import PillButton from "../shared/PillButton";
 import RevealScale from "../shared/RevealScale";
+import Container from "../shared/Container";
+import MediaFrame from "../shared/MediaFrame";
 import { IconCloudDemo } from "../ui/icon-cloud-demo";
 
 // Two-up summary: looping media on the left, studio blurb + CTA on the right.
 // When a video URL is present it loops; otherwise an interactive icon cloud
 // fills the media slot. Media placeholder lives at /public/assets/home/summary.mp4.
-const videoUrl = "";
+const videoUrl = "/video/ghost-cursor-1780384739284 (online-video-cutter.com).mp4";
 
 export default function AboutSummary() {
   return (
-    <section className="relative mb-10 ">
-      <div className="mx-auto max-w-400 px-6 md:px-12 lg:px-60">
-        <div className="flex flex-col items-center gap-12 md:flex-row md:gap-16">
+    <section className="relative mb-10">
+      <Container>
+        <div className="flex flex-col items-center gap-10 md:flex-row md:gap-16">
           <RevealScale className="flex-1">
-            <div className="relative aspect-100/100 w-full overflow-hidden rounded-[20px] md:h-[500px]">
+            <MediaFrame className="aspect-100/100 w-full md:h-[500px]">
               {videoUrl ? (
                 <div className="absolute inset-0 animate-[idea-pan_20s_ease-in-out_infinite] bg-[length:200%_200%] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400" />
               ) : (
@@ -35,11 +37,11 @@ export default function AboutSummary() {
                   <IconCloudDemo />
                 </div>
               )}
-            </div>
+            </MediaFrame>
           </RevealScale>
 
           <div className="flex-1">
-            <div className="max-w-[500px] space-y-6 text-2xl leading-snug tracking-[0.02em]">
+            <div className="max-w-[500px] space-y-4 text-xl leading-snug tracking-apple-body md:space-y-6 md:text-2xl">
               <p>
                 Since 2010, we have been helping our clients find exceptional
                 solutions for their businesses, creating memorable websites and
@@ -51,12 +53,12 @@ export default function AboutSummary() {
                 simplifications.
               </p>
             </div>
-            <div className="mt-10">
+            <div className="mt-8 md:mt-10">
               <PillButton href="/services" label="What we do" variant="ink" />
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

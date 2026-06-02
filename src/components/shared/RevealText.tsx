@@ -12,6 +12,8 @@ type RevealTextProps = {
   /** override the global --word-ease (e.g. "ease-out" or a cubic-bezier()) */
   ease?: string;
   as?: "h1" | "h2" | "h3" | "p" | "span";
+  /** id on the rendered element — used to wire section aria-labelledby. */
+  id?: string;
 };
 
 // Splits text into words, each animating up from a clipped baseline. Mirrors
@@ -25,6 +27,7 @@ export default function RevealText({
   duration,
   ease,
   as: Tag = "span",
+  id,
 }: RevealTextProps) {
   const words = text.split(" ");
 
@@ -38,6 +41,7 @@ export default function RevealText({
 
   return (
     <Tag
+      id={id}
       aria-label={text}
       data-cursor="-blend -scale"
       className={className}

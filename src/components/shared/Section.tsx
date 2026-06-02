@@ -1,4 +1,5 @@
 import type { ElementType, ReactNode } from "react";
+import Container from "./Container";
 
 type SectionVariant = "normal" | "rounded" | "overlap";
 
@@ -19,13 +20,18 @@ type SectionProps = {
   className?: string;
   /** extra classes on the inner container */
   innerClassName?: string;
+  /** id of the heading that names this section → sets aria-labelledby so the
+   *  section becomes a distinguishable landmark (pair with <SectionHeading id>). */
+  labelledBy?: string;
   as?: ElementType;
 };
 
 // The dark stacked panels overlap the previous section and round their top
-// corners — the inner padding here gives that overlap room to breathe.
-const PANEL = "rounded-t-[80px] pb-2 pt-36";
-const INNER = "mx-auto max-w-[1600px] px-6 md:px-12 lg:px-60";
+// corners — the inner padding here gives that overlap room to breathe. Radius
+// and top padding scale up phone → desktop so panels don't feel oversized on
+// small screens.
+const PANEL =
+  "rounded-t-[40px] pb-2 pt-20 md:rounded-t-[60px] md:pt-28 lg:rounded-t-[80px] lg:pt-36";
 
 /**
  * Layout + spacing wrapper that keeps sections consistent. Pick a `variant`
@@ -40,6 +46,7 @@ export default function Section({
   bleed = false,
   className = "",
   innerClassName = "",
+  labelledBy,
   as: Tag = "section",
 }: SectionProps) {
   const isPanel = variant === "rounded" || variant === "overlap";
@@ -54,21 +61,27 @@ export default function Section({
     .filter(Boolean)
     .join(" ");
 
-  const inner = bleed ? innerClassName : `${INNER} ${innerClassName}`.trim();
+  // bleed lays children out full-bleed (no centered container); otherwise the
+  // shared Container provides the max-width + responsive gutters.
+  const content = bleed ? (
+    <div className={innerClassName}>{children}</div>
+  ) : (
+    <Container className={innerClassName}>{children}</Container>
+  );
 
   if (isPanel) {
     return (
-      <Tag className={outer}>
+      <Tag className={outer} aria-labelledby={labelledBy}>
         <div className={PANEL} style={{ backgroundColor: bg }}>
-          <div className={inner}>{children}</div>
+          {content}
         </div>
       </Tag>
     );
   }
 
   return (
-    <Tag className={outer}>
-      <div className={inner}>{children}</div>
+    <Tag className={outer} aria-labelledby={labelledBy}>
+      {content}
     </Tag>
   );
 }

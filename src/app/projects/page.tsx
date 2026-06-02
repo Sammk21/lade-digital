@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
 import GetInTouch from "@/components/shared/GetInTouch";
-import ProjectsHero from "@/components/project/ProjectsHero";
+import PageHero from "@/components/shared/PageHero";
+import Container from "@/components/shared/Container";
 import ProjectGrid from "@/components/project/ProjectGrid";
 import Reveal from "@/components/shared/Reveal";
 import CtaFooter from "@/components/shared/CtaFooter";
@@ -25,10 +26,15 @@ export default function ProjectsPage() {
       <Navbar />
       <GetInTouch />
       <main>
-        <section className="overflow-hidden px-0 pb-40 pt-48 md:pt-52">
-          <ProjectsHero />
-          <Reveal className="mx-auto mt-16 block max-w-[1600px] px-6 md:px-12 lg:px-60">
-            <ProjectGrid />
+        <PageHero
+          title="Our projects"
+          lead="We help bring ideas to life and create digital products that work."
+        />
+        <section className="overflow-hidden pb-40">
+          <Reveal className="block">
+            <Container>
+              <ProjectGrid />
+            </Container>
           </Reveal>
         </section>
       </main>

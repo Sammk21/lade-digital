@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PROJECTS, FILTERS, type Category } from "@/lib/projects";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../shared/ProjectCard";
 import RevealUp from "../shared/RevealUp";
 import HoverButton from "../shared/HoverButton";
 
@@ -18,7 +18,7 @@ export default function ProjectGrid() {
   return (
     <div>
       {/* Filter tabs */}
-      <div className="mb-28 mt-16 flex flex-wrap justify-center gap-x-2 gap-y-3">
+      <div className="mb-16 mt-10 flex flex-wrap justify-center gap-x-2 gap-y-3 md:mb-28 md:mt-16">
         {FILTERS.map((filter) => {
           const isActive = active === filter.id;
           return (
@@ -26,7 +26,7 @@ export default function ProjectGrid() {
               <HoverButton
                 onClick={() => setActive(filter.id)}
                 aria-pressed={isActive}
-                className={`text-2xl tracking-[0.02em] transition-opacity ${
+                className={`text-xl tracking-[0.02em] transition-opacity md:text-2xl ${
                   isActive ? "opacity-100" : "opacity-40 hover:opacity-100"
                 }`}
               >

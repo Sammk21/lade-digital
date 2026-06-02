@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import RevealScale from "../shared/RevealScale";
+import Container from "../shared/Container";
 import { useCursor } from "../cursor/CursorProvider";
 
 // The play glyph shown inside the follower cursor while hovering the reel. It
@@ -45,7 +46,7 @@ export default function Showreel() {
 
   return (
     <section className="relative z-10">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-12 lg:px-[7.5rem]">
+      <Container width="wide">
         <RevealScale>
           <button
             type="button"
@@ -62,7 +63,7 @@ export default function Showreel() {
             onPointerLeave={clearCursor}
             onPointerCancel={clearCursor}
             aria-label="Play showreel"
-            className="group relative block aspect-[1360/725] w-full overflow-hidden rounded-[20px]"
+            className="group relative block aspect-[1360/725] w-full overflow-hidden rounded-media"
           >
             <div className="absolute inset-0 animate-[idea-pan_18s_ease-in-out_infinite] bg-[length:200%_200%] bg-gradient-to-br from-neutral-700 via-neutral-900 to-black" />
             <video
@@ -77,7 +78,7 @@ export default function Showreel() {
             </video>
           </button>
         </RevealScale>
-      </div>
+      </Container>
 
       {/* Fullscreen modal */}
       {open && (
