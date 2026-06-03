@@ -28,7 +28,7 @@ export default function FeaturedProjects() {
         
         {/* Right Column (Offset) */}
         {/* Adjusted the mobile top-margin (mt-16) so the offset looks proportional on smaller screens */}
-        <div className="mt-16 grid gap-8 md:mt-[331px] md:gap-16 lg:gap-24">
+        <div className="mt-16 grid gap-8 md:mt-81.75 md:gap-16 lg:gap-24">
           {FEATURED_RIGHT.map((p, i) => (
             <RevealUp key={p.slug} delay={i * 100}>
               <ProjectCard project={p} theme="paper" tall={p.tall} />

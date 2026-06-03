@@ -44,13 +44,13 @@ export default function ProjectCard({
             : "grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-6 md:gap-16"
         }`}
       >
-        <MediaFrame className={isGrid && tall ? "aspect-[500/675]" : "aspect-square"}>
+        <MediaFrame className={isGrid && tall ? "aspect-500/675" : "aspect-square"}>
           <div
-            className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-reveal)] group-hover:scale-105"
+            className="absolute inset-0 transition-transform duration-[1.2s] ease-reveal group-hover:scale-105"
             style={{ background: gradientFor(project.slug) }}
           />
           <div
-            className="absolute inset-0 opacity-[0.12] mix-blend-overlay transition-transform duration-[1.2s] ease-[var(--ease-reveal)] group-hover:scale-105"
+            className="absolute inset-0 opacity-[0.12] mix-blend-overlay transition-transform duration-[1.2s] ease-reveal group-hover:scale-105"
             style={{
               backgroundImage:
                 "radial-gradient(circle at 30% 25%, rgba(255,255,255,0.6), transparent 45%)",

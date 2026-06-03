@@ -39,12 +39,12 @@ export default function ProjectMedia({
           alt={alt || label || ""}
           fill
           sizes={sizes}
-          className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-reveal)] group-hover:scale-105"
+          className="object-cover transition-transform duration-[1.2s] ease-reveal group-hover:scale-105"
         />
       ) : (
         <>
           <div
-            className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-reveal)] group-hover:scale-105"
+            className="absolute inset-0 transition-transform duration-[1.2s] ease-reveal group-hover:scale-105"
             style={{ background: gradientFor(seed) }}
           />
           <div

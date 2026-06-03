@@ -9,7 +9,7 @@ export default function GetInTouch() {
     <Link
       href="/contacts"
       aria-label="Get in touch"
-      className="group fixed bottom-6 right-6 z-30 hidden h-[130px] w-[130px] md:bottom-10 md:right-12 md:block"
+      className="group fixed bottom-6 right-6 z-30 hidden h-32.5 w-32.5 md:bottom-10 md:right-12 md:block"
     >
       {/* Rotating ring of text */}
       <svg
@@ -31,11 +31,11 @@ export default function GetInTouch() {
       </svg>
 
       {/* Centre disc */}
-      <div className="absolute inset-[22px] flex items-center justify-center overflow-hidden rounded-full bg-ink text-paper transition-transform duration-500 group-hover:scale-105">
+      <div className="absolute inset-5.5 flex items-center justify-center overflow-hidden rounded-full bg-ink text-paper transition-transform duration-500 group-hover:scale-105">
         <svg
           viewBox="0 0 24 24"
           fill="none"
-          className="h-7 w-7 transition-transform duration-500 ease-[var(--ease-reveal)] group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="h-7 w-7 transition-transform duration-500 ease-reveal group-hover:translate-x-1 group-hover:-translate-y-1"
           aria-hidden="true"
         >
           <path
