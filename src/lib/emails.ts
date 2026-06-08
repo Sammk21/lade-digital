@@ -111,7 +111,7 @@ function shell(opts: { preheader: string; body: string }): string {
             <tr>
               <td style="padding:28px 40px 32px;border-top:1px solid ${BORDER};background-color:${CANVAS};">
                 <p style="margin:0 0 6px;font-family:${SANS};font-size:13px;line-height:1.6;color:${MUTED};">
-                  Lade Studio — Alexandria, VA &amp; Prague
+                  Lade Studio — Navi Mumbai, MH &amp; India
                 </p>
                 <p style="margin:0 0 18px;font-family:${SANS};font-size:13px;line-height:1.6;color:${MUTED};">
                   <a href="mailto:info@lade.digital" style="color:${INK};text-decoration:none;">info@lade.digital</a>
@@ -193,7 +193,7 @@ Talk soon,
 The Lade Studio
 
 —
-Lade Studio — Alexandria, VA & Prague
+Lade Studio — Navi Mumbai, MH & India
 info@lade.digital / ${SITE_URL}`;
 
   return {
