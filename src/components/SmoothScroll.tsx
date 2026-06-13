@@ -4,6 +4,9 @@ import { ReactLenis, type LenisRef } from "lenis/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 /* --------------------------------------------------------------------------
    Smooth scrolling — Lenis, driven by GSAP's ticker.
@@ -34,7 +37,9 @@ export default function SmoothScroll({
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Step Lenis from GSAP's ticker (one shared rAF). GSAP's ticker time is in
-  // seconds; Lenis.raf expects milliseconds.
+  // seconds; Lenis.raf expects milliseconds. We also forward Lenis's virtual
+  // scroll position to ScrollTrigger so any ScrollTrigger-driven animation
+  // stays perfectly in sync with the smooth scroll.
   useEffect(() => {
     const update = (time: number) => {
       lenisRef.current?.lenis?.raf(time * 1000);
@@ -42,7 +47,14 @@ export default function SmoothScroll({
     gsap.ticker.add(update);
     // GSAP smooths delta time by default; disable so scroll tracks the wheel 1:1.
     gsap.ticker.lagSmoothing(0);
-    return () => gsap.ticker.remove(update);
+
+    const lenis = lenisRef.current?.lenis;
+    lenis?.on("scroll", ScrollTrigger.update);
+
+    return () => {
+      gsap.ticker.remove(update);
+      lenis?.off("scroll", ScrollTrigger.update);
+    };
   }, []);
 
   // Reset to the top on every internal navigation, without animating the jump.

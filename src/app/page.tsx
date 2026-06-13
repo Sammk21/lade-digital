@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
-// import GetInTouch from "@/components/shared/GetInTouch";
 import Reveal from "@/components/shared/Reveal";
 import Section from "@/components/shared/Section";
 import PageHero from "@/components/shared/PageHero";
@@ -31,7 +30,6 @@ export default function HomePage() {
   return (
     <>
       <Navbar duration={2} />
-      {/* <GetInTouch /> */}
       <main>
         <PageHero
           title="Digital design & development agency"
@@ -54,6 +52,7 @@ export default function HomePage() {
             bg="#161616"
             className="pb-30 text-paper"
             labelledBy="featured-heading"
+            bleed
           >
             <FeaturedProjects />
           </Section>

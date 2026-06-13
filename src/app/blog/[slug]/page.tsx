@@ -5,7 +5,6 @@ import rehypePrettyCode, {
   type Options as RehypePrettyCodeOptions,
 } from "rehype-pretty-code";
 import Navbar from "@/components/shared/Navbar";
-import GetInTouch from "@/components/shared/GetInTouch";
 import CtaFooter from "@/components/shared/CtaFooter";
 import RevealText from "@/components/shared/RevealText";
 import Reveal from "@/components/shared/Reveal";
@@ -159,7 +158,6 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <GetInTouch />
       <main>
         <article className="px-6 pb-28 pt-36 md:px-12 md:pt-52 lg:px-60">
           <div className="mx-auto w-full max-w-4xl">

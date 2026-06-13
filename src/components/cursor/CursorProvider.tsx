@@ -475,7 +475,7 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
    Use it when you'd rather stay in JSX than juggle data-attributes:
 
      <Cursor content={<ArrowUpRight />} className="-pill">
-       <a href="/work">See our work</a>
+       <a href="/projects">See our work</a>
      </Cursor>
    ------------------------------------------------------------------------- */
 export function Cursor({

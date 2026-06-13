@@ -9,7 +9,7 @@ export type Swatch = { name: string; hex: string };
 export type GalleryItem = {
   /**
    * Swap-ready image path under /public (e.g.
-   * "/assets/projects/crunchies/menu.jpg"). Leave undefined to render a
+   * "/assets/projects/nestora/02.png"). Leave undefined to render a
    * gradient placeholder — drop in a screenshot and set `src` to go live.
    */
   src?: string;
@@ -25,6 +25,12 @@ export type ProjectDetail = {
   year: string;
   /** Industry / product area, e.g. "Food & delivery". */
   sector: string;
+  /**
+   * Public URL of the shipped project. When set, the project detail page shows
+   * the floating "view live site" badge linking here; omit it for work that
+   * isn't publicly live and the badge is hidden.
+   */
+  live?: string;
   /** Optional hero cover image; falls back to a gradient placeholder. */
   cover?: string;
   /** One-line statement under the title. */
@@ -61,7 +67,7 @@ export const PROJECTS: Project[] = [
     detail: {
       year: "2026",
       sector: "Real estate",
-      cover: "/assets/projects/nestora/cover.jpg",
+      cover: "/assets/projects/nestora/cover.png",
       tagline:
         "A property marketplace where search feels like browsing homes, not databases.",
       overview:
@@ -77,7 +83,14 @@ export const PROJECTS: Project[] = [
         "Full-stack build",
         "Agent dashboard",
       ],
-      stack: ["MongoDB", "Express", "React", "Node.js", "Redux Toolkit", "Mapbox"],
+      stack: [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "Redux Toolkit",
+        "Mapbox",
+      ],
       stats: [
         { value: "12k+", label: "Listings indexed at launch" },
         { value: "0.6s", label: "Median search response" },
@@ -91,16 +104,33 @@ export const PROJECTS: Project[] = [
         { name: "Stone", hex: "#8A8F98" },
       ],
       gallery: [
+    
         {
-          src: "/assets/projects/nestora/01.jpg",
+          src: "/assets/projects/nestora/02.png",
           label: "Map-led search results",
-          aspect: "ultrawide",
+          aspect: "wide",
           full: true,
         },
-        { src: "/assets/projects/nestora/02.jpg", label: "Listing detail", aspect: "portrait" },
-        { src: "/assets/projects/nestora/03.jpg", label: "Saved homes", aspect: "portrait" },
-        { src: "/assets/projects/nestora/04.jpg", label: "Photo-first listing cards", aspect: "wide" },
-        { src: "/assets/projects/nestora/05.jpg", label: "Virtual tour view", aspect: "wide" },
+        {
+          src: "/assets/projects/nestora/03.png",
+          label: "Listing detail",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/nestora/04.png",
+          label: "Saved homes",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/nestora/05.png",
+          label: "Photo-first listing cards",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/nestora/06.png",
+          label: "Virtual tour view",
+          aspect: "wide",
+        },
       ],
     },
   },
@@ -128,7 +158,14 @@ export const PROJECTS: Project[] = [
         "Design system",
         "Front-end build",
       ],
-      stack: ["Next.js", "TypeScript", "tRPC", "Prisma", "PostgreSQL", "Recharts"],
+      stack: [
+        "Next.js",
+        "TypeScript",
+        "tRPC",
+        "Prisma",
+        "PostgreSQL",
+        "Recharts",
+      ],
       stats: [
         { value: "0.5s", label: "Largest contentful paint" },
         { value: "40+", label: "Chart & metric components" },
@@ -148,28 +185,44 @@ export const PROJECTS: Project[] = [
           aspect: "ultrawide",
           full: true,
         },
-        { src: "/assets/projects/ledgerly/02.jpg", label: "Mobile portfolio", aspect: "portrait" },
-        { src: "/assets/projects/ledgerly/03.jpg", label: "Marketing site", aspect: "portrait" },
-        { src: "/assets/projects/ledgerly/04.jpg", label: "Markets & watchlists", aspect: "wide" },
-        { src: "/assets/projects/ledgerly/05.jpg", label: "Building the design system", aspect: "wide" },
+        {
+          src: "/assets/projects/ledgerly/02.jpg",
+          label: "Mobile portfolio",
+          aspect: "portrait",
+        },
+        {
+          src: "/assets/projects/ledgerly/03.jpg",
+          label: "Marketing site",
+          aspect: "portrait",
+        },
+        {
+          src: "/assets/projects/ledgerly/04.jpg",
+          label: "Markets & watchlists",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/ledgerly/05.jpg",
+          label: "Building the design system",
+          aspect: "wide",
+        },
       ],
     },
   },
   {
-    slug: "atelier",
-    name: "Atelier",
+    slug: "36x",
+    name: "36x",
     description: "A headless commerce storefront on Medusa and Next.js",
     categories: ["web", "branding"],
     detail: {
       year: "2026",
       sector: "Fashion & e-commerce",
-      cover: "/assets/projects/atelier/cover.jpg",
+      cover: "/assets/projects/36x/cover.png",
       tagline:
         "A headless storefront where the catalogue reads like a lookbook and checkout never interrupts.",
       overview:
-        "Atelier is a fashion storefront we built on Medusa and Next.js — a fully headless commerce stack with editorial product pages, region-aware pricing and a checkout that stays out of the way of the clothes.",
+        "36x is a fashion storefront we built on Medusa and Next.js — a fully headless commerce stack with editorial product pages, region-aware pricing and a checkout that stays out of the way of the clothes.",
       challenge:
-        "Template storefronts make every brand look the same. Atelier needed lookbook-grade art direction on top of real commerce plumbing — multi-region carts, live inventory and promotions — without trading away performance.",
+        "Template storefronts make every brand look the same. 36x needed lookbook-grade art direction on top of real commerce plumbing — multi-region carts, live inventory and promotions — without trading away performance.",
       approach:
         "Medusa gave us the commerce engine; Next.js gave us total control of the front of house. We designed collection pages as editorial spreads, kept the cart as a quiet slide-over, and let Stripe-powered checkout finish in three steps.",
       deliverables: [
@@ -187,22 +240,37 @@ export const PROJECTS: Project[] = [
         { value: "1.2k", label: "SKUs at launch" },
       ],
       palette: [
-        { name: "Noir", hex: "#0E0E0E" },
-        { name: "Bone", hex: "#F2EDE6" },
-        { name: "Camel", hex: "#B08850" },
-        { name: "Navy", hex: "#1F2A44" },
+        { name: "Black", hex: "#000000" },
+        { name: "White", hex: "#ffffff" },
+        { name: "Light Gray", hex: "#e6e6e6" },
       ],
       gallery: [
         {
-          src: "/assets/projects/atelier/01.jpg",
+          src: "/assets/projects/36x/01.png",
           label: "Collection landing",
           aspect: "ultrawide",
           full: true,
         },
-        { src: "/assets/projects/atelier/02.jpg", label: "Product detail", aspect: "portrait" },
-        { src: "/assets/projects/atelier/03.jpg", label: "Campaign drop", aspect: "portrait" },
-        { src: "/assets/projects/atelier/04.jpg", label: "Product photography", aspect: "wide" },
-        { src: "/assets/projects/atelier/05.jpg", label: "Express checkout", aspect: "wide" },
+        {
+          src: "/assets/projects/36x/02.png",
+          label: "Product detail",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/36x/03.png",
+          label: "Campaign drop",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/36x/04.png",
+          label: "Product photography",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/36x/05.png",
+          label: "Express checkout",
+          aspect: "wide",
+        },
       ],
     },
   },
@@ -250,10 +318,26 @@ export const PROJECTS: Project[] = [
           aspect: "ultrawide",
           full: true,
         },
-        { src: "/assets/projects/plume/02.jpg", label: "Article view", aspect: "portrait" },
-        { src: "/assets/projects/plume/03.jpg", label: "Author desk", aspect: "portrait" },
-        { src: "/assets/projects/plume/04.jpg", label: "Strapi editor in use", aspect: "wide" },
-        { src: "/assets/projects/plume/05.jpg", label: "Reading list", aspect: "wide" },
+        {
+          src: "/assets/projects/plume/02.jpg",
+          label: "Article view",
+          aspect: "portrait",
+        },
+        {
+          src: "/assets/projects/plume/03.jpg",
+          label: "Author desk",
+          aspect: "portrait",
+        },
+        {
+          src: "/assets/projects/plume/04.jpg",
+          label: "Strapi editor in use",
+          aspect: "wide",
+        },
+        {
+          src: "/assets/projects/plume/05.jpg",
+          label: "Reading list",
+          aspect: "wide",
+        },
       ],
     },
   },
@@ -305,20 +389,20 @@ export function getProjectDetail(project: Project): ProjectDetail {
   };
 }
 
-// Curated subset shown on the home page, split into two columns with the
-// right column offset downward. `tall` controls the card aspect (3:4 vs 1:1)
-// to reproduce the source's varied masonry rhythm.
+// Curated subset shown on the home page. `tall` is kept on the type for callers
+// that still want the 3:4 aspect, though the stacked featured layout uses the
+// default landscape cover.
 export type FeaturedProject = Project & { tall?: boolean };
 
 const bySlug = (slug: string) =>
   PROJECTS.find((p) => p.slug === slug) as Project;
 
-export const FEATURED_LEFT: FeaturedProject[] = [
-  { ...bySlug("nestora"), tall: true },
-  { ...bySlug("atelier") },
-];
-
-export const FEATURED_RIGHT: FeaturedProject[] = [
-  { ...bySlug("ledgerly"), tall: true },
+// Single ordered list for the stacked, one-card-per-row featured layout: each
+// project gets its own full-width row, with the card itself constrained to a
+// left-aligned 70% width on desktop.
+export const FEATURED: FeaturedProject[] = [
+  { ...bySlug("nestora") },
+  { ...bySlug("ledgerly") },
+  { ...bySlug("36x") },
   { ...bySlug("plume") },
 ];

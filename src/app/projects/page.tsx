@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
-import GetInTouch from "@/components/shared/GetInTouch";
 import PageHero from "@/components/shared/PageHero";
 import Container from "@/components/shared/Container";
 import ProjectGrid from "@/components/project/ProjectGrid";
@@ -24,7 +23,6 @@ export default function ProjectsPage() {
   return (
     <>
       <Navbar />
-      <GetInTouch />
       <main>
         <PageHero
           title="Our projects"

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
-import GetInTouch from "@/components/shared/GetInTouch";
 import PageHero from "@/components/shared/PageHero";
 import PillButton from "@/components/shared/PillButton";
 import ContactForm from "@/components/contact/ContactForm";
@@ -25,7 +24,6 @@ export default function ContactsPage() {
   return (
     <>
       <Navbar />
-      <GetInTouch />
       <main>
         <PageHero
           eyebrow="Get in touch"

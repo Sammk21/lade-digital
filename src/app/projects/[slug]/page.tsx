@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/shared/Navbar";
-import GetInTouch from "@/components/shared/GetInTouch";
+import LiveSiteBadge from "@/components/shared/LiveSiteBadge";
 import CtaFooter from "@/components/shared/CtaFooter";
 import RevealText from "@/components/shared/RevealText";
 import Reveal from "@/components/shared/Reveal";
@@ -122,7 +122,7 @@ export default async function ProjectPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <GetInTouch />
+      {detail.live && <LiveSiteBadge href={detail.live} />}
       <main>
         <article className="overflow-hidden pb-28 pt-36 md:pt-52">
           {/* Hero */}

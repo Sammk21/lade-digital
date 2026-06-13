@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
-import GetInTouch from "@/components/shared/GetInTouch";
 import PageHero from "@/components/shared/PageHero";
 import VideoShowcase from "@/components/services/VideoShowcase";
 import Solutions from "@/components/services/Solutions";
@@ -25,7 +24,6 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <GetInTouch />
       <main>
         <PageHero eyebrow="Our services" title="Going beyond what’s possible" />
         <Reveal>

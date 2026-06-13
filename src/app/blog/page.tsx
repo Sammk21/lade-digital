@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/Navbar";
-// import GetInTouch from "@/components/shared/GetInTouch";
 import CtaFooter from "@/components/shared/CtaFooter";
 import Reveal from "@/components/shared/Reveal";
 import Container from "@/components/shared/Container";
@@ -29,7 +28,6 @@ export default async function BlogPage() {
   return (
     <>
       <Navbar />
-      {/* <GetInTouch /> */}
       <main>
         <PageHero eyebrow="Blog" title="Notes on design, motion, and the web" />
         <Reveal className="block pb-40">

@@ -14,7 +14,7 @@ export const hoverTargetClass =
 export function HoverText({ children }: { children: ReactNode }) {
   return (
     <>
-      <span className="block transition-transform duration-700 ease-reveal group-hover:translate-y-[-120%]">
+      <span className="block transition-transform  duration-700 ease-reveal group-hover:translate-y-[-120%]">
         {children}
       </span>
       <span className="absolute left-5 top-1.5 block translate-y-full scale-68 transition-transform duration-700 ease-reveal group-hover:translate-y-0 group-hover:scale-100">
